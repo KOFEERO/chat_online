@@ -4,6 +4,7 @@
 :root {
     --colorPrimario: #3F3B3B;
     --colorSecundario: #797676;
+    --colorFondo: rgb(83, 83, 83);
     --colorBlanco: #FFF;
     --colorNegro: #000;
     --fuentePrincipal: 'Ubuntu', sans-serif;
@@ -60,7 +61,7 @@ a {
 /* sección contacto */
 
 .chat-contactos {
-    background-color: rgb(83, 83, 83);
+    background-color: var(--colorFondo);
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
     overflow: auto;
@@ -197,7 +198,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    overflow: auto;
+    overflow-y: auto;
 }
 .sala-chat .contenedor .chat::-webkit-scrollbar {
     width: 9px;
@@ -225,21 +226,25 @@ a {
 /* este codigo es importante para el listado de mensajes del mysql */
 .chat .mensaje-usuario .mensaje {
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: .8rem;
     background-color: var(--colorBlanco);
     color: var(--colorNegro);
-    padding: .6rem 1.3rem;
-    border-bottom-left-radius: 3rem;
+    padding: .6rem 1rem;
+    /* border-bottom-left-radius: 3rem; */
     border-top-right-radius: .6rem;
     border-bottom-right-radius: .6rem;
-    text-align: center;
+    border-bottom-left-radius: .6rem;
 }
 
 .contenedor .chat .mensaje-contacto {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+    
+}
+.contenedor .chat .mensaje-contacto,
+.contenedor .chat .mensaje-usuario {
+    margin-top: 1rem;
 }
 
 .chat .mensaje-contacto .foto-usuario {
@@ -251,22 +256,21 @@ a {
 
 /* este codigo es importante para el listado de mensajes del mysql */
 .chat .mensaje-contacto .mensaje {
+    width: 100%;
     font-size: 1rem;
-    margin-top: 2rem;
-    margin-left: 1rem;
+    margin: 0 0 0 0;
     background-color: var(--colorSecundario);
     color: var(--colorBlanco);
-    padding: .6rem 1.8rem;
+    padding: .6rem 1rem;
     border-top-right-radius: .6 rem;
     border-top-left-radius: .6rem;
     border-bottom-left-radius: .6rem;
     border-bottom-right-radius: 3rem;
-    text-align: center;
 }
 
 /* formulario de enviar mensajes */
 .campo-escritura {
-    background-color: rgb(83, 83, 83);
+    background-color: var(--colorFondo);
     padding: 1rem;
     border-bottom-left-radius: .6rem;
     border-bottom-right-radius: .6rem;
@@ -305,4 +309,69 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+}
+
+/*Estilos para el formulario*/
+.formulario {
+    width: 100%;
+    background-color: rgb(63 59 68 / 100%);
+    padding: 1rem 2rem;
+    border-radius: .6rem;
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 768px) {
+    .formulario {
+        width: 90%;
+        margin: auto;
+    }
+}
+.formulario .formulario-titulo {
+    text-align: center;
+    color: var(--colorBlanco);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+.formulario .campo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.formulario .campo .icon-form {
+    background-color: var(--colorSecundario);
+    font-size: 1rem;
+}
+.formulario .campo .campo__input {
+    width: 90%;
+    outline: none;
+    border: none;
+    font-size: .9rem;
+}
+.formulario .campo .icon-form,
+.formulario .campo .campo__input {
+    padding: .5rem 1rem;
+}
+.formulario .btn-submit {
+    display: block;
+    border: solid 1px var(--colorBlanco);
+    font-size: 1rem;
+    padding: .2rem 2rem;
+    background-color: var(--colorPrimario);
+    color: var(--colorBlanco);
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+.formulario .cambio-formulario {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.formulario .cambio-formulario a {
+    color: var(--colorBlanco);
+    font-weight: 300;
+}
+.formulario .cambio-formulario a:hover {
+    text-decoration: underline;
 }
